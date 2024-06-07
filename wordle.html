@@ -25,7 +25,7 @@
 	</div>
 	<nav class="flex">
 		<div class="button-white-small-ns m-l-10 m-r-10 m-c-v flex justify-align-center" data-nav="main-fly-nav" data-nav-url="games.html">
-			<img src="src-wordle/res/three-horizontal-lines-icon.svg" width="24" height="24">
+			<img src="src-wordle/res/three-horizontal-lines-icon.svg" style="height: 2.5vh; width: 2.5vh; max-height: 48px; max-width: 48px;">
 		</div>
 	</nav>
 	<div class="mobile">
@@ -34,7 +34,7 @@
 			<div class="button-white-small-ns m-r-10 flex justify-align-center" data-modal="main-modal" data-modal-content-url="src-wordle/windows/info.html" data-modal-closeable=true data-modal-width=270 data-modal-height=350>
 				<img src="src-wordle/res/info-circle-icon.svg" width="24" height="24" >
 			</div>
-			<div class="button-blue-large font-very-small" data-modal="main-modal" data-modal-content-url="src-wordle/windows/create.html" data-modal-closeable=true data-modal-width=270>Create your own Wordle!</div>
+			<div class="button-blue-large" data-modal="main-modal" data-modal-content-url="src-wordle/windows/create.html" data-modal-closeable=true data-modal-width=270>Create your own Wordle!</div>
 			<div class="button-white-small-ns m-l-10 flex justify-align-center">
 			<!-- <div class="button-white-small-ns m-l-10 flex justify-align-center" data-modal="main-modal" data-modal-content-url="src-wordle/windows/not_implemented.html" data-modal-closeable=true data-modal-width=240 data-modal-height=350> -->
 				<img src="src-wordle/res/column-chart-icon.svg" width="24" height="24">
@@ -207,7 +207,7 @@
 									break;
 								}
 
-								html += `<div class="ans-box ans-box-small ${s} m-l-2 m-r-2" style="border-width: 1px;"></div>`;
+								html += `<div class="ans-box ans-box-very-small ${s} m-l-2 m-r-2" style="border-width: 1px;"></div>`;
 								ans_att_str += b;
 							}
 							html += `</div>`;

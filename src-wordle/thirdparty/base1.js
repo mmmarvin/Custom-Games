@@ -42,10 +42,23 @@ function __base1_show_modal_impl(modal, closeable, width, height, func)
 		if(width)
 		{
 			modal.css("max-width", `${width}px`);
+			modal.css("width", `${width}px`);
 		}
+		else
+		{
+			modal.css("max-width", "");
+			modal.css("width", "");
+		}
+
 		if(height)
 		{
 			modal.css("max-height", `${height}px`);
+			modal.css("height", `${height}px`);
+		}
+		else
+		{
+			modal.css("max-height", "");
+			modal.css("height", "");
 		}
 
 		modal_parent.show();
