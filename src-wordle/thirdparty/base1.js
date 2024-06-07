@@ -169,7 +169,7 @@ function __base1_main()
 		}
 	});
 
-	const color_scheme = ["white", "blue", "green", "purple", "orange", "gray"]
+	const color_scheme = ["white", "blue", "green", "purple", "orange", "gray"];
 	for(const color of color_scheme)
 	{
 		const modal_func = (_, obj) =>

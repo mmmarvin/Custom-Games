@@ -1,6 +1,6 @@
 function get_dictionary_location()
 {
-	return path_join(path_dirname(document.location.href), "src/dictionary.json");
+	return path_join(path_dirname(document.location.href), "src-wordle/dictionary.json");
 }
 
 class Dictionary
@@ -21,8 +21,7 @@ class Dictionary
 			});
 
 			req.done((msg) => {
-				local_dictionary = JSON.parse(msg);
-				console.log(local_dictionary);
+				local_dictionary = msg;
 				if(!("version" in local_dictionary ) ||
 				   !("words" in local_dictionary))
 				{
