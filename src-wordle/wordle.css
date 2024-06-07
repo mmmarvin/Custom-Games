@@ -220,3 +220,27 @@ body {
 .key-special-del {
 	width: 60px;
 }
+
+@media only screen and (max-height: 650px) {
+	.ans-box-normal {
+		max-width: 42px;
+		max-height: 42px;
+		width: 42px;
+		height: 42px;
+		line-height: 42px;
+		font-size: 1.35em;
+	}	
+
+	.key-box {
+		height: 46px;
+		line-height: 46px;
+	}
+
+	nav {
+		height: 42px;
+	}
+
+	#title {
+		font-size: var(--font-size-medium) !important;
+	}
+}
