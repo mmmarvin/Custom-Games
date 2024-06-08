@@ -131,12 +131,12 @@ class Game
 				let delay = (c - 1) * 100;
 
 				el.addClass("ans-box-anim-spin-in");
-				el.attr("style", `animation-delay: ${delay}ms;`);
+				el.css("animation-delay", `${delay}ms`);
 				el.on("animationend", (event) =>
 				{
 					if(event.originalEvent.animationName == "anim-box-spin-in")
 					{
-						el.attr("style", `animation-delay: 0ms;`);
+						el.css("animation-delay", "0ms");
 						el.removeClass("ans-box-anim-spin-in");
 						el.addClass("ans-box-anim-spin-out");
 

@@ -15,8 +15,8 @@
 
 nav {
 	display: flex;
-	max-height: 48px;
-	height: 5vh;
+	max-height: 36px;
+	height: 36px;
 	box-shadow: 0px 1px 1px dimgray;
 }
 
@@ -55,12 +55,12 @@ body {
 	100% { opacity: 0; }
 }
 
-#board {
+#div-board {
 	display: grid;
 	grid-template-columns: auto 300px auto;
 }
 
-#board-compressor {
+#div-board-compressor {
 	grid-column: 2 / span 1;
 }
 
@@ -71,13 +71,20 @@ body {
 	margin-bottom: 5px;
 }
 
+.ans-row-display {
+	display: flex;
+	justify-content: center;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
 .ans-box-normal {
 	max-width: 52px;
 	max-height: 52px;
-	width: 6vh;
-	height: 6vh;
+	/*width: 52px;
+	height: 52px;*/
 	min-width: 25px;
-	line-height: 6vh;
+/*	line-height: 52px;*/
 	font-size: 3vh;
 }
 
@@ -93,10 +100,9 @@ body {
 .ans-box-very-small {
 	max-width: 28px;
 	max-height: 28px;
-	width: 3vh;
-	height: 3vh;
-	line-height: 3vh;
-	font-size: 1.5vh;
+	width: 2vh;
+	height: 2vh;
+	line-height: 2vh;
 }
 
 .ans-box {
@@ -162,7 +168,7 @@ body {
 	border-color: var(--color-correct);
 }
 
-#keyboard {
+#div-keyboard {
 	grid-column: 2 / span 1;
 }
 
@@ -173,11 +179,11 @@ body {
 }
 
 .key-box {
-	height: 6vh;
-	font-size: 3vh;
+	height: 62px;
+	font-size: 2vh;
 	font-weight: 525;
 	text-align: center;
-	line-height: 6vh;
+	line-height: 62px;
 	border-radius: 4px;
 	user-select: none;
 }
