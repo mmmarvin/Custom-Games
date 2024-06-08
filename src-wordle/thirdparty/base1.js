@@ -4,7 +4,20 @@ $(document).mousemove((event) => {
     __base1_current_mouse_pos.y = event.pageY;
 });
 
-function __base1_show_modal_impl(modal, closeable, width, height, func)
+function __base1_hide_modal(modal, done = () => {})
+{
+	if(modal && modal.parent().hasClass("modal-bg"))
+	{
+		modal.parent().fadeOut(400, () =>
+		{
+			modal.hide();
+			modal.trigger("hide");
+			done();
+		});
+	}
+}
+
+function __base1_show_modal_impl(modal, closeable, width, height, done, func)
 {
 	if(modal && modal.parent().hasClass("modal-bg"))
 	{
@@ -23,13 +36,10 @@ function __base1_show_modal_impl(modal, closeable, width, height, func)
 			{
 				if(closeable)
 				{
+					$(obj).show();
 					$(obj).on("click", () =>
 					{
-						modal_parent.hide();
-						modal.fadeOut(400, () =>
-						{
-							modal.trigger("hide");
-						});
+						__base1_hide_modal(modal);
 					});
 				}
 				else
@@ -41,23 +51,23 @@ function __base1_show_modal_impl(modal, closeable, width, height, func)
 
 		if(width)
 		{
-			modal.css("max-width", `${width}px`);
+			// modal.css("max-width", `${width}px`);
 			modal.css("width", `${width}px`);
 		}
 		else
 		{
-			modal.css("max-width", "");
+			// modal.css("max-width", "");
 			modal.css("width", "");
 		}
 
 		if(height)
 		{
-			modal.css("max-height", `${height}px`);
+			// modal.css("max-height", `${height}px`);
 			modal.css("height", `${height}px`);
 		}
 		else
 		{
-			modal.css("max-height", "");
+			// modal.css("max-height", "none");
 			modal.css("height", "");
 		}
 
@@ -65,21 +75,25 @@ function __base1_show_modal_impl(modal, closeable, width, height, func)
 		modal.fadeIn(400, () =>
 		{
 			modal.trigger("show");
+			if(done)
+			{
+				done();
+			}
 		});
 	}
 }
 
-function __base1_show_modal_url(modal, url, closeable, width, height)
+function __base1_show_modal_url(modal, url, closeable, width, height, done = () => {})
 {
-	__base1_show_modal_impl(modal, closeable, width, height, (el) =>
+	__base1_show_modal_impl(modal, closeable, width, height, done, (el) =>
 	{
 		el.load(url);
 	});
 }
 
-function __base1_show_modal_html(modal, html, closeable, width, height)
+function __base1_show_modal_html(modal, html, closeable, width, height, done = () => {})
 {
-	__base1_show_modal_impl(modal, closeable, width, height, (el) =>
+	__base1_show_modal_impl(modal, closeable, width, height, done, (el) =>
 	{
 		el.html(html);
 	});
@@ -87,7 +101,7 @@ function __base1_show_modal_html(modal, html, closeable, width, height)
 
 function __base1_show_modal(modal, closeable, width, height)
 {
-	__base1_show_modal_impl(modal, closeable, width, height);
+	__base1_show_modal_impl(modal, closeable, width, height, () => {}, () => {});
 }
 
 function __base1_register_show_modal(caller, modal, url, closeable, width, height)
@@ -132,6 +146,21 @@ function __base1_register_show_fly_nav(caller, fly_nav, url)
 				}
 			});
 		});
+	}
+}
+
+function __base1_on_resize()
+{
+	let ww = $(window).outerWidth(true);
+	let wh = $(window).outerHeight(true);
+	if(ww < wh)
+	{
+		$(".mobile").each((_, obj) =>
+		{
+			$(obj).css("grid-template-columns", `auto ${ww}px auto`);
+		});
+
+		$(".modal").css("max-width", "none");
 	}
 }
 
@@ -235,6 +264,9 @@ function __base1_main()
 	$(".fly-nav-bg").each((_, obj) => {
 		$(obj).hide();
 	});
+
+	$(window).on("resize", __base1_on_resize);
+	__base1_on_resize();
 }
 
 function __base1_copy_to_clipboard(str)

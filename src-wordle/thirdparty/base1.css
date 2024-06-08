@@ -1,9 +1,9 @@
 :root {
-	--font-size-very-large: 2rem;
-	--font-size-large: 1.5rem;
-	--font-size-medium: 1.2rem;
-	--font-size-small: 0.85rem;
-	--font-size-very-small: 0.5rem;
+	--font-size-very-large: 4vh;
+	--font-size-large: 3vh;
+	--font-size-medium: 2.5vh;
+	--font-size-small: 2vh;
+	--font-size-very-small: 1.5vh;
 	--color-button-white: rgba(255,255, 255, 1.0);
 	--color-button-white-hover: rgba(230,230, 230, 1.0);
 	--color-button-white-down: rgba(205,205, 205, 1.0);
@@ -1291,6 +1291,7 @@ hr.rounded {
 	padding: 0px 20px 20px 20px;
 	overflow-x: hidden;
 	overflow-y: auto;
+	max-width: 300px;
 }
 
 .modal-title {

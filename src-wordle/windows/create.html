@@ -71,6 +71,7 @@
 		function btn_copy_clicked()
 		{
 			__base1_copy_to_clipboard($("#txt-link").val());
+			show_quick_message("Link copied!");
 
 			$("#btn-copy-link").removeClass("button");
 			$("#btn-copy-link").addClass("button-disabled");

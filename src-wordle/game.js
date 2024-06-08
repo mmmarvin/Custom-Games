@@ -74,12 +74,12 @@ class Game
 			}
 			else
 			{
-				show_quick_message("Not in word list", EQM_LOGO.EQML_ERROR);
+				show_quick_message("Not in word list");
 			}
 		}
 		else
 		{
-			show_quick_message("Not enough letters", EQM_LOGO.EQML_ERROR);
+			show_quick_message("Not enough letters");
 		}
 
 		return false;
